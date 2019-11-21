@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <input type="text" placeholder="name" #name>
+  <input type="text" placeholder="surname" #surname>
+
+  <button type="button" class="btn btn-primary btn-sm" (click)="addUserEvent(name.value, surname.value)">Add User</button>
+</div>
+
+<div class="container mt-5">
+  <h3>Users</h3>
+  <ul>
+      <li *ngFor="let user of userData$ | async; let i = index" class="p-1">
+          <span>{{user.name}} {{user.surname}}</span>
+          <span class="ml-5">
+            <button type="button" class="btn btn-secondary btn-sm" (click)="deleteUserEvent(i)">Remove User</button>
+          </span>
+      </li>
+  </ul>
+</div>
